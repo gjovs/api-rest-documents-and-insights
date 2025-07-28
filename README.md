@@ -32,49 +32,49 @@ O diagrama abaixo ilustra o fluxo de dados e a interação entre os componentes 
 
 ```mermaid
 graph TD
-    subgraph "Plataforma Principal"
-        WebApp(Angular Frontend)
-        Backend(Backend Django API)
+    subgraph Plataforma_Principal
+        WebApp[Angular Frontend]
+        Backend[Backend Django API]
     end
 
-    subgraph "Serviços de IA (Worker Pool)"
-        AIService(AI Service Worker)
+    subgraph Servicos_IA_Worker_Pool
+        AIService[AI Service Worker]
     end
 
-    subgraph "Infraestrutura de Dados"
-        PostgreSQL[(PostgreSQL)]
-        Neo4j[(Neo4j: Cache de Similaridade)]
-        RedisQueue[Redis (Fila de Tarefas)]
-        RedisStream[Redis (Canal de Streaming)]
+    subgraph Infraestrutura_de_Dados
+        PostgreSQL[PostgreSQL]
+        Neo4j[Neo4j - Cache de Similaridade]
+        RedisQueue[Redis - Fila de Tarefas]
+        RedisStream[Redis - Canal de Streaming]
     end
 
-    subgraph "Serviços Externos"
-        OpenAI(OpenAI LLM)
-        ZapSignAPI(ZapSign API)
+    subgraph Servicos_Externos
+        OpenAI[OpenAI LLM]
+        ZapSignAPI[ZapSign API]
     end
 
-    WebApp -- "1. Requisições RESTful" --> Backend
-    Backend -- "10. SSE Stream de Insights" --> WebApp
+    WebApp  --> Backend
+    Backend --> WebApp
     
-    Backend <--> ZapSignAPI
-    ZapSignAPI -- "Webhooks" --> Backend
+    Backend --> ZapSignAPI
+    ZapSignAPI --> Backend
     
-    Backend -- "Armazenamento CRUD" --> PostgreSQL
+    Backend  --> PostgreSQL
     
-    Backend -- "2. Envia Tarefa de Análise" --> RedisQueue
-    AIService -- "3. Consome Tarefa" --> RedisQueue
+    Backend --> RedisQueue
+    AIService--> RedisQueue
     
-    AIService -- "4. Busca Documento Similar" --> Neo4j
-    Neo4j -- "5. Cache Miss" --> AIService
+    AIService  --> Neo4j
+    Neo4j  --> AIService
     
-    AIService -- "6. Chama LLM" --> OpenAI
-    OpenAI -- "7. Retorna Insight" --> AIService
+    AIService--> OpenAI
+    OpenAI  --> AIService
     
-    AIService -- "8. Publica Tokens em Tempo Real" --> RedisStream
-    Backend -- "9. Escuta Canal e Retransmite" --> RedisStream
+    AIService --> RedisStream
+    Backend  --> RedisStream
     
-    AIService -- "Persiste Insight Final & Embedding" --> PostgreSQL
-    AIService -- "Salva Embedding no Cache" --> Neo4j
+    AIService  --> PostgreSQL
+    AIService --> Neo4j
 ```
 
 ### 3. Design System (Princípios de Arquitetura)
