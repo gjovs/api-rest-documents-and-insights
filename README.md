@@ -12,8 +12,8 @@
 Esta solução é composta por três repositórios independentes:
 
 * **[API Backend (Este Repositório)](./):** Orquestrador principal, CRUDs e integrações.
-* **[Worker Pool LLM Service](https://github.com/SEU-USUARIO/worker_pool_llm_service):** Serviço de IA responsável pela análise, cache e persistência dos insights.
-* **[Frontend Angular](https://github.com/SEU-USUARIO/frontend):** A interface de usuário para gerenciamento de documentos.
+* **[Worker Pool LLM Service](https://github.com/gjovs/worker_pool_llm_service):** Serviço de IA responsável pela análise, cache e persistência dos insights.
+* **[Frontend Angular](https://github.com/gjovs/frontend-documents-and-insights):** A interface de usuário para gerenciamento de documentos.
 
 
 ## 1. Descrição do Projeto
