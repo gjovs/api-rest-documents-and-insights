@@ -14,3 +14,5 @@ class GetSignerSigningUrlUseCase:
         if not signer or not signer.zapsign_signer_token:
             return None
         return f"{ZAPSIGN_API_URL}/verificar/{signer.zapsign_signer_token}"
+
+

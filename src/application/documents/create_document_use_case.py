@@ -15,9 +15,11 @@ class CreateDocumentUseCase:
         self.zapsign_service = zapsign_service
         self.queue_service = queue_service
         self.document_repository = document_repository
+
+
         self.signer_repository = signer_repository
 
-    def execute(self, name: str, company: Company, user: User, file_url: str, signers_data: list) -> Document | None:
+    def execute(self, name: str, company: Company, user: User, file_url: str, signers_data: list) -> Document:
         api_token = company.api_token
         if not api_token:
             raise ValueError("Empresa sem token de API.")

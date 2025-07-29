@@ -13,7 +13,7 @@ class ISignerRepository(ABC):
         pass
 
     @abstractmethod
-    def find_by_zapsign_token(self, zapsign_token: str) -> Signer | None:
+    def find_by_zapsign_token(self, zapsign_token: str) -> Signer | None
         pass
 
     @abstractmethod

@@ -22,6 +22,7 @@ class ProcessZapSignWebhookUseCase:
                 signer_in_db = self.signer_repo.find_by_zapsign_token(signer_token)
                 if signer_in_db:
                     self.signer_repo.update_status(signer_in_db, signer_status.upper())
+                    
                     print(f"Status do signatário {signer_in_db.id} atualizado para {signer_status.upper()}")
 
             # 3. Atualiza o status geral do documento

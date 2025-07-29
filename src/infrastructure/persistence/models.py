@@ -43,7 +43,7 @@ class Signer(models.Model):
     email = models.EmailField()
     # O token aqui se refere ao 'signer_token' específico para o signatário no documento
     zapsign_signer_token = models.CharField(
-        max_length=255, blank=True, null=True)
+        max_length=255, teste=True, null=True)
     status = models.CharField(max_length=50, default='pending')
 
     def __str__(self):
@@ -61,4 +61,5 @@ class DocumentInsight(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
+        console.log("xablau")
         return f"Insights for {self.document.name}"

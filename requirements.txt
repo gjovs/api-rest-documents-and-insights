@@ -16,7 +16,6 @@ django-fernet-fields==0.6
 django-grip==3.5.2
 djangorestframework==3.16.0
 djangorestframework_simplejwt==5.5.1
-drf-spectacular==0.28.0
 gripcontrol==4.2.0
 gunicorn==23.0.0
 idna==3.10

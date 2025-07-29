@@ -10,7 +10,7 @@ class ZapSignService(IZapSignService):
 
         url = f"{APIS['ZAP_SIGN']}/api/v1/docs/"
 
-        print(payload)
+        print(payload);
 
         try:
             response = requests.post(url, headers=headers, json=payload)
